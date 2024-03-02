@@ -1,38 +1,127 @@
-.App {
-  text-align: center;
+.Tarjeta {
+  margin: 2vh 3vw;
+  border: 1px solid black;
+  border-radius: 12px;
+  padding-block-end: 2vh;
+  max-height: 900px;
+  max-width: 650px;
+  width: max-content;
+  height: max-content;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.Tarjeta__header {
+  background-color: gray;
+  border-radius: 12px 12px 0 0;
+  padding-inline: 2%;
+  padding-block: 2%;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Tarjeta__head {
+  margin: 0 5%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Tarjeta__imagen {
+  display: inline-block;
+  max-height: 20%;
+  max-width: 20%;
+  height: 40px;
+  width: 40px;
+  margin: 5%;
+  border: 0.5px solid black;
+}
+
+.Tarjeta__mobSelector {
+  position: relative;
+  left: 50%;
+  width: 30%;
+  max-width: 30%;
+}
+
+.Tarjeta__form {
+  margin: 5%;
+  max-height: 75%;
+  height: 450px;
+}
+
+.Formulario.-MobType {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.Formulario__campo.-MobType {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  textarea {
+    overflow-x: scroll;
+    max-width: 50%;
+    width: 50%;
+    max-height: 20vh;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.Formulario__dropList.-MobType {
+  border: 0.5px solid black;
+  border-radius: 12px;
+  padding-block-start: 10px;
+  padding-block-end: 10px;
+  padding-inline-start: 8px;
+  max-height: 22%;
+  height: 62px;
+  overflow-x: scroll;
+  list-style: none;
+}
+
+.Formulario__dropOption.-MobType {
+  display: flex;
+  justify-content: space-around;
+  max-height: 15%;
+  max-width: 90%;
+  border: none;
+  select {
+    flex-basis: 20%;
+    flex-grow: 2;
+    flex-shrink: 1;
+    max-width: 35%;
   }
+  input {
+    flex-basis: 10%;
+    flex-grow: 1;
+    flex-shrink: 2;
+    max-height: min-content;
+    max-width: 15%;
+    width: 5%;
+  }
+}
+
+.Lista__item.-DropList {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 14px 4px 5px;
+}
+
+.Boton.-addLoot {
+  position: relative;
+  inset-inline: 40%;
+}
+
+.Boton.-eliminar.-DropList {
+  border-radius: 100%;
+  border: 0.2 solid black;
+  background-color: red;
+  color: white;
+  font-weight: 2rem;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.Boton.-exportar {
+  position: relative;
+  inset-inline: 40%;
+  margin-top: 20px;
 }
