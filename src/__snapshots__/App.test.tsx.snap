@@ -1,0 +1,405 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Componente renders correctly 1`] = `
+<article
+  className="Tarjeta"
+>
+  <header
+    className="Tarjeta__header"
+  >
+    <h4>
+      Monster Editor
+    </h4>
+  </header>
+  <section
+    className="Tarjeta__head"
+  >
+    <figure
+      className="Tarjeta__imagen"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </figure>
+    <select
+      className="Tarjeta__mobSelector"
+      id=""
+      name="monster[id]"
+      onChange={[Function]}
+    >
+      <option>
+        Select
+      </option>
+      <option
+        value="demon"
+      >
+        Gargoyle
+      </option>
+      <option
+        value="avatar"
+      >
+        Avatar
+      </option>
+      <option
+        value="man1"
+      >
+        Man
+      </option>
+      <option
+        value="iolo"
+      >
+        Iolo
+      </option>
+      <option
+        value="shamino"
+      >
+        Shamino
+      </option>
+      <option
+        value="corvus"
+      >
+        Corvus
+      </option>
+      <option
+        value="calista"
+      >
+        Calista
+      </option>
+      <option
+        value="rat"
+      >
+        Rat
+      </option>
+      <option
+        value="cow"
+      >
+        Cow
+      </option>
+      <option
+        value="skeleton"
+      >
+        Skeleton
+      </option>
+      <option
+        value="swordSoldier"
+      >
+        Soldier
+      </option>
+      <option
+        value="xbowSoldier"
+      >
+        Soldier
+      </option>
+      <option
+        value="asteroth"
+      >
+        Asteroth
+      </option>
+    </select>
+  </section>
+  <section
+    className="Tarjeta__form"
+  >
+    <form
+      action=""
+      className="Formulario -MobType"
+    >
+      <label
+        className="Formulario__campo -MobType"
+        htmlFor=""
+      >
+        <span>
+          Name
+        </span>
+        <input
+          id="monster-name"
+          name="monster[name]"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </label>
+      <label
+        className="Formulario__campo -MobType"
+        htmlFor=""
+      >
+        <span>
+          Description
+        </span>
+        <textarea
+          cols={22}
+          id="monster-description"
+          name="monster[description]"
+          onChange={[Function]}
+          rows={10}
+          value=""
+        />
+      </label>
+      <label
+        className="Formulario__campo -MobType"
+        htmlFor=""
+      >
+        <span>
+          Weight
+        </span>
+        <input
+          id="monster-weight"
+          name="monster[weight]"
+          onChange={[Function]}
+          type="number"
+        />
+      </label>
+      <label
+        className="Formulario__campo -MobType"
+        htmlFor=""
+      >
+        <span>
+          Hit points
+        </span>
+        <input
+          id="monster-hitPoints"
+          name="monster[hitPoints]"
+          onChange={[Function]}
+          type="number"
+        />
+      </label>
+      <label
+        className="Formulario__campo -MobType"
+        htmlFor=""
+      >
+        <span>
+          Attack
+        </span>
+        <input
+          id="monster-attack"
+          name="monster[attack]"
+          onChange={[Function]}
+          type="number"
+        />
+      </label>
+      <ul
+        className="Formulario__dropList -MobType"
+        id="dropItemList"
+      />
+      <fieldset
+        className="Formulario__dropOption -MobType"
+      >
+        <select
+          id="monster_dropItem"
+          name="monster[dropItem]"
+        >
+          <option>
+            Select
+          </option>
+          <option
+            value="Fish"
+          >
+            Fish
+          </option>
+          <option
+            value="Lobster"
+          >
+            Lobster
+          </option>
+          <option
+            value="Sword"
+          >
+            Sword
+          </option>
+          <option
+            value="Mystic Sword"
+          >
+            Mystic Sword
+          </option>
+          <option
+            value="Spear of Shamap"
+          >
+            Spear of Shamap
+          </option>
+          <option
+            value="Chain Mail"
+          >
+            Chain Mail
+          </option>
+          <option
+            value="Magic Axe"
+          >
+            Magic Axe
+          </option>
+          <option
+            value="Crossbow"
+          >
+            Crossbow
+          </option>
+          <option
+            value="Iron Bolt"
+          >
+            Iron Bolt
+          </option>
+          <option
+            value="Boomerang"
+          >
+            Boomerang
+          </option>
+          <option
+            value="Main Gauche"
+          >
+            Main Gauche
+          </option>
+          <option
+            value="Demon Body"
+          >
+            Demon Body
+          </option>
+          <option
+            value="Man Body"
+          >
+            Man Body
+          </option>
+          <option
+            value="Rat Body"
+          >
+            Rat Body
+          </option>
+          <option
+            value="Cow Body"
+          >
+            Cow Body
+          </option>
+          <option
+            value="Bones"
+          >
+            Bones
+          </option>
+          <option
+            value="Door"
+          >
+            Door
+          </option>
+          <option
+            value="Door"
+          >
+            Door
+          </option>
+          <option
+            value="Door"
+          >
+            Door
+          </option>
+          <option
+            value="Door"
+          >
+            Door
+          </option>
+          <option
+            value="Gold key"
+          >
+            Gold key
+          </option>
+          <option
+            value="Journal of The Quest"
+          >
+            Journal of The Quest
+          </option>
+          <option
+            value="Ginseng Potion"
+          >
+            Ginseng Potion
+          </option>
+          <option
+            value="Blood Moss Potion"
+          >
+            Blood Moss Potion
+          </option>
+          <option
+            value="Lute"
+          >
+            Lute
+          </option>
+          <option
+            value="Harpsichord"
+          >
+            Harpsichord
+          </option>
+          <option
+            value="Piano"
+          >
+            Piano
+          </option>
+          <option
+            value="Torch"
+          >
+            Torch
+          </option>
+          <option
+            value="Barrel"
+          >
+            Barrel
+          </option>
+          <option
+            value="Backpack"
+          >
+            Backpack
+          </option>
+          <option
+            value="Bag"
+          >
+            Bag
+          </option>
+          <option
+            value="Rock"
+          >
+            Rock
+          </option>
+          <option
+            value="Oak Tree"
+          >
+            Oak Tree
+          </option>
+          <option
+            value="Carrot"
+          >
+            Carrot
+          </option>
+          <option
+            value="Empty Bucket"
+          >
+            Empty Bucket
+          </option>
+          <option
+            value="Bucket (Milk)"
+          >
+            Bucket (Milk)
+          </option>
+        </select>
+        <input
+          className=""
+          id="monster_dropItemQty"
+          name="monster[dropQty]"
+          type="number"
+        />
+      </fieldset>
+    </form>
+  </section>
+  <footer
+    className="Tarjeta__footer"
+  >
+    <button
+      className="Boton -addLoot"
+      onClick={[Function]}
+      role="boton_addLoot"
+      type="button"
+    >
+      Add Loot
+    </button>
+  </footer>
+  <button
+    className="Boton -exportar"
+    onClick={[Function]}
+    type="button"
+  >
+    Exportar
+  </button>
+</article>
+`;
