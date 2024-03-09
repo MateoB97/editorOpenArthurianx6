@@ -32,16 +32,21 @@
 }
 
 .Tarjeta__mobSelector {
+  /* display: flex; */
   position: relative;
-  left: 50%;
-  width: 30%;
-  max-width: 30%;
+  left: 40%;
+  width: 50%;
+  max-width: 50%;
+  span {
+    margin-right: 5px;
+  }
 }
 
 .Tarjeta__form {
   margin: 5%;
   max-height: 75%;
   height: 450px;
+  padding: 3px;
 }
 
 .Tarjeta__footer.-MobType {
@@ -58,6 +63,11 @@
   height: 65%;
   max-height: 65%;
   overflow-x: scroll;
+  padding: 12px;
+  scroll-padding-block-start: 3px;
+  scroll-padding-block-start: 3px;
+  scroll-padding-inline-end: 3px;
+  scroll-padding-inline-end: 3px;
 }
 
 .Formulario__campo.-MobType {
@@ -71,6 +81,13 @@
     width: 50%;
     max-height: 20vh;
   }
+}
+
+.Formulario__campo.-MobType.-dropOption {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 0;
 }
 
 .Items {
@@ -93,10 +110,17 @@
 
 .Items__dropOption.-MobType {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   max-height: 15%;
   max-width: 90%;
   border: none;
+  button {
+    flex-basis: 20%;
+    flex-grow: 2;
+    flex-shrink: 1;
+    max-width: 35%;
+  }
   select {
     flex-basis: 20%;
     flex-grow: 2;
@@ -104,11 +128,11 @@
     max-width: 35%;
   }
   input {
-    flex-basis: 10%;
+    flex-basis: 20%;
     flex-grow: 1;
     flex-shrink: 2;
     max-height: min-content;
-    max-width: 15%;
+    max-width: 25%;
     width: 5%;
   }
 }

@@ -18,6 +18,7 @@ const MobTypes: Array<MobTemplate> = [
     id: "avatar",
     appearance: "man1",
     name: "Avatar",
+    description: "test description 1",
     hp: 200,
     damage: 15,
     defense: 2,
@@ -173,15 +174,15 @@ export type LootItems = {
 };
 type UseEffect = { type: string };
 export interface MobTemplate {
-  id: string;
-  appearance: string;
-  name: string;
+  id?: string;
+  appearance?: string;
+  name?: string;
   description?: string;
-  hp: number;
-  damage: number;
-  defense: number;
-  speed: number;
-  corpse: string;
+  hp?: number;
+  damage?: number;
+  defense?: number;
+  speed?: number;
+  corpse?: string;
   intent?: string;
   alignment?: string;
   weapon?: string;
