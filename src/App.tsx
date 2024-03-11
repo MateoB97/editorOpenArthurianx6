@@ -13,10 +13,6 @@ function App() {
   const [MobActual, setMobActual] = useImmer<MobTemplate | undefined>(
     undefined,
   );
-  const inputRef = React.useRef<MobTemplate | undefined>(MobActual);
-
-  // console.log(MobActual, "actual");
-  // console.log(MobGlobalData, "global");
 
   function defineMobsData(): Array<MobTemplate | undefined> {
     let MobsLocal = localStorage.getItem("Mobs");
@@ -28,10 +24,11 @@ function App() {
     }
     return obj;
   }
-
+  
   function consultaDatosMob(): Array<MobTemplate | undefined> {
     // fetch a alguna BD o archivo en sv
     try {
+      localStorage.setItem("Mobs", JSON.stringify(MobTypeData));
       return MobTypeData;
     } catch (error) {
       // return error
@@ -86,10 +83,10 @@ function App() {
   function handleMobId(event: React.ChangeEvent<any>) {
     if (MobActual) {
       setMobGlobal((draft) => {
-        let indice = draft.findIndex((mob) => mob?.id === MobActual?.id);
-        if (indice >= 0) {
-          draft.splice(indice, 1, MobActual);
-        } else if (indice === -1 && MobActual?.id) {
+        let index = draft.findIndex((mob) => mob?.id === MobActual?.id);
+        if (index >= 0) {
+          draft.splice(index, 1, MobActual);
+        } else if (index === -1 && MobActual?.id) {
           draft.push(MobActual);
         }
         return draft;
@@ -106,51 +103,73 @@ function App() {
     id: string | undefined,
   ): void {
     event.stopPropagation();
-    function filterItem(actual: MobTemplate | undefined) {
-      let newItems: Array<LootItems>;
-      if (actual !== undefined) {
-        if (actual?.items) {
-          newItems = actual?.items.filter((item) => id !== item.itemId);
-          actual.items = newItems;
-          return actual;
+    try {
+      setMobActual(draft=>{
+        if (draft !== undefined) {
+          if (draft?.items) {
+            let index = draft?.items.findIndex((item) => id === item.itemId);
+            if (index > -1) {
+              draft?.items.splice(index,1);
+            } else {
+              throw new Error("Index not encounter on item list to delete");
+            }
+          }
         }
-      }
+        return draft;
+      });
+    } catch (error) {
+      console.error(error)
     }
-    setMobActual(filterItem(MobActual));
   }
 
   function addLootMob(): void {
-    function pushItem(
-      actual: MobTemplate | undefined,
-    ): MobTemplate | undefined {
-      const itemValue = typeNewItem.current?.value ?? "";
-      const qtyValue = parseInt(qtyNewItem.current?.value ?? "", 10);
-      let nuevoLoot: {
-        itemId: string | undefined;
-        quantity: number | undefined;
-      } = {
-        itemId: itemValue,
-        quantity: qtyValue,
-      };
-      if (actual !== undefined) {
-        if (!actual?.items) {
-          actual!.items = [];
+    const itemValue = typeNewItem.current?.value ?? "";
+    const qtyValue = parseInt(qtyNewItem.current?.value ?? "", 10);
+    let nuevoLoot: {
+      itemId: string | undefined;
+      quantity: number | undefined;
+    } = {
+      itemId: itemValue,
+      quantity: qtyValue,
+    };
+    setMobActual(draft =>{
+      if (draft !== undefined) {
+        if (!draft?.items) {
+          draft!.items = [];
         }
-        let lootFiltro = actual?.items!.filter(
-          (item) => item.itemId !== nuevoLoot.itemId,
-        );
-        lootFiltro.push(nuevoLoot);
-        actual.items = lootFiltro;
+        let index = draft?.items.findIndex(item=>item.itemId===itemValue)
+        if (index === -1) {
+          draft?.items!.push(nuevoLoot);
+        } else if (index >= 0) {
+          draft?.items!.splice(index, 1, nuevoLoot);
+        }
       }
-      return actual;
-    }
-    setMobActual(pushItem(MobActual));
+      return draft;
+    });
   }
 
   function addMobData(): void {
     try {
-      // localStorage.setItem("Mobs", JSON.stringify(MobGlobalData));
-    } catch (error) {}
+      if (!MobActual || Object.keys(MobActual).length === 0) {
+        console.error("You can't set an empty Mob")
+      } else {
+        let MobsLocalString = localStorage.getItem("Mobs");
+        if (MobsLocalString) {
+          let MobsLocal: Array<MobTemplate | undefined> = JSON.parse(MobsLocalString);
+          let index = MobsLocal.findIndex(mob=>mob?.id===MobActual?.id)
+          if (index > -1) {
+            MobsLocal.splice(index,1,MobActual)
+          } else {
+            MobsLocal.push(MobActual);
+          }
+          localStorage.setItem('Mobs', JSON.stringify(MobsLocal))
+        } else {
+          throw new Error("MobsLocal value has not been reset correctly");
+        }
+      }
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
@@ -169,7 +188,6 @@ function App() {
               Select
             </option>
             {MobGlobalData.map((mob, key) => {
-              // console.log(mob?.id)
               return (
                 <option key={key} value={mob?.id}>
                   {mob?.name ?? 'No name'}
@@ -299,7 +317,6 @@ function App() {
           <label className="Formulario__campo -MobType" htmlFor="">
             <span>UseEffect</span>
             <select
-              ref={inputRef?.current?.useEffect?.type}
               name="mob[useEffect]"
               id="mob_useEffect"
             >
