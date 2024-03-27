@@ -172,7 +172,9 @@ export type LootItems = {
   itemId: string | undefined;
   quantity: number | undefined;
 };
+
 type UseEffect = { type: string };
+
 export interface MobTemplate {
   id?: string;
   appearance?: string;

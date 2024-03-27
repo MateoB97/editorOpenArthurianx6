@@ -1,15 +1,50 @@
-import React from "react";
+import React, { RefObject, useEffect, useContext } from "react";
+// import { MobDataContext } from "./Mobs/MobDataContext";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import { Form } from "./Mobs/Form";
+import { List } from "./Mobs/List";
 import reportWebVitals from "./reportWebVitals";
+import {
+  createBrowserRouter,
+  RouterProvider
+} from "react-router-dom";
+import { ErrorPage } from "./errorPage";
+import { defineMobsData as MobLoader} from "./data/Mobs";
+import MobTypeData, { MobTemplate, LootItems } from "./data/MobTypes";
+import {loaderMobs} from "./Mobs/Form"
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage/>,
+    loader: MobLoader satisfies ()=>Array<MobTemplate | undefined>,
+    children: [      
+      {
+        path: "mobs",
+        element: <List />,
+      },
+      {
+        path: "mobs/form/:mobId",
+        element: <Form />,
+        loader: loaderMobs satisfies ({ params }: { params: any; }) => Promise<MobTemplate | undefined>
+      },
+      {
+        path: "mobs/form",
+        element: <Form />,
+       }
+    ]
+  },
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 );
 
